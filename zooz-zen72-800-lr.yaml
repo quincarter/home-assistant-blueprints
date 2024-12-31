@@ -1,0 +1,319 @@
+blueprint:
+  name: "Zooz ZEN72"
+  description: "Automations helper for the Zooz ZEN72 Dimmer Switch using the Zwave JS integration."
+  domain: automation
+  input:
+    automation_mode:
+      name: "Automation Mode"
+      description: |
+        Selector for Running the Automation in Single/Restart/Queued/Parallel Mode
+        Generally, Single is best for discrete button press actions, and Restart for when using hold to dim with looping
+      default: single
+      selector:
+        select:
+          options:
+            - single
+            - restart
+            - queued
+            - parallel
+          custom_value: false
+          sort: false
+          multiple: false
+    zooz_zen72:
+      name: "Zooz ZEN72"
+      description: "The ZEN72 Switch with which to interact."
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: Zooz
+          filter:
+            - model: ZEN72
+            - model: ZEN72 800LR
+          multiple: false
+    dimmer_up_1x:
+      name: "Top Paddle 1x"
+      description: |
+        Action to run on dimmer upper paddle single tap. 
+        Default: Turn on dimmer switch load to last/custom/full/max brightness.
+      default: []
+      selector:
+        action: {}
+    dimmer_up_2x:
+      name: "Top Paddle 2x"
+      description: |
+        Action to run on dimmer upper paddle double tap.
+        Default: Turn on dimmer switch to full/max/custom brightness.
+      default: []
+      selector:
+        action: {}
+    dimmer_up_3x:
+      name: "Top Paddle 3x"
+      description: |
+        Action to run on dimmer upper paddle triple tap.
+        Default: Enter inclusion/pairing mode.
+      default: []
+      selector:
+        action: {}
+    dimmer_up_4x:
+      name: "Top Paddle 4x"
+      description: "Action to run on dimmer upper paddle quadruple tap."
+      default: []
+      selector:
+        action: {}
+    dimmer_up_5x:
+      name: "Top Paddle 5x"
+      description: "Action to run on dimmer upper paddle quintuple tap."
+      default: []
+      selector:
+        action: {}
+    dimmer_up_hold:
+      name: "Top Paddle Hold"
+      description: |
+        Action to run on dimmer upper paddle press-and-hold. 
+        Default: Increase dimmer brightness level.
+      default: []
+      selector:
+        action: {}
+    loop_up_hold:
+      name: "Loop Upper Paddle Hold Action?"
+      description: "Asserts whether upper hold action should loop until button is released"
+      default: false
+      selector:
+        boolean: {}
+    dimmer_up_loop_hold_delay:
+      name: "Top Paddle Hold Loop Delay"
+      description: "Delay between sucessive service calls while upper paddle is held"
+      selector:
+        number:
+          min: 0
+          max: 1000
+          unit_of_measurement: milliseconds
+          mode: box
+      default: 100
+    dimmer_up_release:
+      name: "Top Paddle Release"
+      description: "Action to run on dimmer upper paddle release."
+      default: []
+      selector:
+        action: {}
+    dimmer_down_1x:
+      name: "Lower Paddle 1x"
+      description: |
+        Action to run on dimmer lower paddle single tap.
+        Default: Turn off dimmer switch load.
+      default: []
+      selector:
+        action: {}
+    dimmer_down_2x:
+      name: "Lower Paddle 2x"
+      description: "Action to run on dimmer lower paddle double tap."
+      default: []
+      selector:
+        action: {}
+    dimmer_down_3x:
+      name: "Lower Paddle 3x"
+      description: |
+        Action to run on dimmer lower paddle triple tap. 
+        Default: Enter exclusion/un-pairing mode.
+      default: []
+      selector:
+        action: {}
+    dimmer_down_4x:
+      name: "Lower Paddle 4x"
+      description: "Action to run on dimmer lower paddle quadruple tap."
+      default: []
+      selector:
+        action: {}
+    dimmer_down_5x:
+      name: "Lower Paddle 5x"
+      description: "Action to run on dimmer lower paddle quintuple tap."
+      default: []
+      selector:
+        action: {}
+    dimmer_down_hold:
+      name: "Bottom Paddle Hold"
+      description: |
+        Action to run on dimmer lower paddle press-and-hold.
+        Default: Decrease dimmer brightness level.
+      default: []
+      selector:
+        action: {}
+    loop_down_hold:
+      name: "Loop Lower Paddle Hold Action"
+      description: "Asserts whether lower paddle hold action should loop until button is released"
+      default: false
+      selector:
+        boolean: {}
+    dimmer_down_loop_hold_delay:
+      name: "Bottom Paddle Hold Loop Delay"
+      description: "Delay between sucessive service calls while lower paddle is held"
+      selector:
+        number:
+          min: 0
+          max: 1000
+          unit_of_measurement: milliseconds
+          mode: box
+      default: 100
+    dimmer_down_release:
+      name: "Bottom Paddle Release"
+      description: "Action to run on dimmer lower paddle double tap."
+      default: []
+      selector:
+        action: {}
+    momentary_1x:
+      name: "External Momentary 1x"
+      description: "Action to run on external momentary single tap."
+      default: []
+      selector:
+        action: {}
+    momentary_2x:
+      name: "External Momentary 2x"
+      description: "Action to run on external momentary double tap."
+      default: []
+      selector:
+        action: {}
+    momentary_3x:
+      name: "External Momentary 3x"
+      description: "Action to run on external momentary triple tap."
+      default: []
+      selector:
+        action: {}
+    momentary_4x:
+      name: "External Momentary 4x"
+      description: "Action to run on external momentary quadruple tap."
+      default: []
+      selector:
+        action: {}
+    momentary_5x:
+      name: "External Momentary 5x"
+      description: "Action to run on external momentary quintuple tap."
+      default: []
+      selector:
+        action: {}
+    momentary_hold:
+      name: "External Momentary Hold"
+      description: "Action to run on external momentary hold."
+      default: []
+      selector:
+        action: {}
+    loop_momentary_hold:
+      name: "Loop External Momentary Hold Action"
+      description: "Asserts whether external momentary hold action should loop until button is released"
+      default: false
+      selector:
+        boolean: {}
+    momentary_loop_hold_delay:
+      name: "External Momentary Hold Loop Delay"
+      description: "Delay between sucessive service calls while external momentary button is held"
+      selector:
+        number:
+          min: 0
+          max: 1000
+          unit_of_measurement: milliseconds
+          mode: box
+      default: 100
+    momentary_release:
+      name: "External Momentary Release"
+      description: "Action to run on external momentary release."
+      default: []
+      selector:
+        action: {}
+  source_url: https://community.home-assistant.io/t/zooz-zen72/322433
+mode: !input automation_mode
+max_exceeded: silent
+trigger:
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      command_class_name: Central Scene
+      device_id: !input zooz_zen72
+action:
+  - variables:
+      scene_id: "{{ trigger.event.data.label }}"
+      value_readable: "{{ trigger.event.data.value }}"
+      value_raw: "{{ trigger.event.data.value_raw }}"
+      is_loop_up_hold: !input loop_up_hold
+      is_loop_down_hold: !input loop_down_hold
+      is_loop_momentary_hold: !input loop_momentary_hold
+      up_hold: !input dimmer_up_hold
+      down_hold: !input dimmer_down_hold
+      momentary_hold: !input momentary_hold
+  - choose:
+      - conditions: "{{ scene_id == 'Scene 001' }}"
+        sequence:
+          - choose:
+            - conditions: "{{ value_readable == 'KeyPressed' or value_raw == 0 }}"
+              sequence: !input dimmer_up_1x
+            - conditions: "{{ value_readable == 'KeyPressed2x' or value_raw == 3 }}"
+              sequence: !input dimmer_up_2x
+            - conditions: "{{ value_readable == 'KeyPressed3x' or value_raw == 4 }}"
+              sequence: !input dimmer_up_3x
+            - conditions: "{{ value_readable == 'KeyPressed4x' or value_raw == 5 }}"
+              sequence: !input dimmer_up_4x
+            - conditions: "{{ value_readable == 'KeyPressed5x' or value_raw == 6 }}"
+              sequence: !input dimmer_up_5x
+            - conditions: "{{ value_readable == 'KeyReleased' or  value_raw == 2 }}"
+              sequence: !input dimmer_up_release
+            - conditions: "{{ value_readable == 'KeyHeldDown' or value_raw == 1 }}"
+              sequence: 
+                - repeat: 
+                    sequence:
+                      - if: "{{ not up_hold in ('none', 'null', 'unavailable', '') }}"
+                        then:  !input dimmer_up_hold
+                      - delay:
+                          milliseconds: !input dimmer_up_loop_hold_delay
+                    until:
+                      - condition: template
+                        value_template: "{{ not is_loop_up_hold }}"
+      - conditions: "{{ scene_id == 'Scene 002' }}"
+        sequence:
+          - choose:
+            - conditions: "{{ value_readable == 'KeyPressed' or value_raw == 0 }}"
+              sequence: !input dimmer_down_1x
+            - conditions: "{{ value_readable == 'KeyPressed2x' or value_raw == 3 }}"
+              sequence: !input dimmer_down_2x
+            - conditions: "{{ value_readable == 'KeyPressed3x' or value_raw == 4 }}"
+              sequence: !input dimmer_down_3x
+            - conditions: "{{ value_readable == 'KeyPressed4x' or value_raw == 5 }}"
+              sequence: !input dimmer_down_4x
+            - conditions: "{{ value_readable == 'KeyPressed5x' or value_raw == 6 }}"
+              sequence: !input dimmer_down_5x
+            - conditions: "{{ value_readable == 'KeyReleased' or value_raw == 2 }}"
+              sequence: !input dimmer_down_release
+            - conditions: "{{ value_readable == 'KeyHeldDown' or value_raw == 1 }}"
+              sequence: 
+                - repeat: 
+                    sequence:
+                      - if: "{{ not down_hold in ('none', 'null', 'unavailable', '') }}"
+                        then:  !input dimmer_down_hold
+                      - delay:
+                          milliseconds: !input dimmer_down_loop_hold_delay
+                    until:
+                      - condition: template
+                        value_template: "{{ not is_loop_down_hold }}"
+      - conditions: "{{ scene_id == 'Scene 003' }}"
+        sequence:
+          - choose:
+            - conditions: "{{ value_readable == 'KeyPressed' or value_raw == 0 }}"
+              sequence: !input momentary_1x
+            - conditions: "{{ value_readable == 'KeyPressed2x' or value_raw == 3 }}"
+              sequence: !input momentary_2x
+            - conditions: "{{ value_readable == 'KeyPressed3x' or value_raw == 4 }}"
+              sequence: !input momentary_3x
+            - conditions: "{{ value_readable == 'KeyPressed4x' or value_raw == 5 }}"
+              sequence: !input momentary_4x
+            - conditions: "{{ value_readable == 'KeyPressed5x' or value_raw == 6 }}"
+              sequence: !input momentary_5x
+            - conditions: "{{ value_readable == 'KeyReleased' or value_raw == 2 }}"
+              sequence: !input momentary_release
+            - conditions: "{{ value_readable == 'KeyHeldDown' or value_raw == 1 }}"
+              sequence: 
+                - repeat: 
+                    sequence:
+                      - if: "{{ not momentary_hold in ('none', 'null', 'unavailable', '') }}"
+                        then:  !input momentary_hold
+                      - delay:
+                          milliseconds: !input momentary_loop_hold_delay
+                    until:
+                      - condition: template
+                        value_template: "{{ not is_loop_momentary_hold }}"
