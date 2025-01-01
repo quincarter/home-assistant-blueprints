@@ -119,14 +119,6 @@ action:
 - variables:
     button_id: '{{ trigger.event.data.property_key_name }}'
     press_count: '{{ trigger.event.data.value }}'
-- service: logbook.log
-  data:
-    name: Button Id
-    message: '{{ button_id }}'
-- service: logbook.log
-  data:
-    name: Press Count
-    message: '{{ press_count }}'
 - choose:
   - conditions: '{{ button_id == "001" and press_count == "KeyPressed" }}'
     sequence: !input 'button_a'
